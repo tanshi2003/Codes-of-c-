@@ -1,8 +1,7 @@
 #include<stdio.h>
-int b[20];
 void merge(int a[20],int l,int mid,int h)
 {
-	int m,j,i,k;
+	int m,j,i,b[20],k;
 	m=l;j=mid+1;i=l;
 	while(m<=mid && j<=h)
 	{
@@ -23,14 +22,14 @@ void merge(int a[20],int l,int mid,int h)
 	{
 		for(k=j;k<=h;k++)
 		{
-			b[i]=a[k];i++;
+			b[i]=a[k];k=k+1;
 		}
     }
 	if(j>h)
 	{
 		for(k=m;k<=mid;k++)
 		{
-			b[i]=a[k];i++;
+			b[i]=a[k];k=k+1;
 		}
 	}
 	for(k=l;k<=h;k++)
@@ -47,9 +46,9 @@ void mergesort(int a[20],int l,int h)
 		merge(a,l,mid,h);
 	}
 }
-void main()
+main()
 {
-	int a[20],i,n;
+	int a[20],b[20],i,n;
 	printf("Enter the size of array:");
 	scanf("%d",&n);
 	printf("Enter the elements:");
